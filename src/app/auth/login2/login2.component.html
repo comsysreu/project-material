@@ -1,0 +1,161 @@
+<!-- <div class="container">
+  <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-card class="shipping-card">
+      <mat-card-header class="title_center">
+        <mat-card-title>Iniciar Sesión</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="First name" formControlName="firstName">
+              <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+                First name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Last name" formControlName="lastName">
+              <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
+                Last name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput #postalCode maxlength="5" placeholder="Postal Code" type="number"
+                formControlName="postalCode">
+              <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div> -->
+
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center"
+  style="background:url(assets/images/big/fondo.png) no-repeat center center; height: 100%; background-size: cover;">
+  <!-- height: 100%; -->
+  <!-- background-position: center; -->
+  <!-- background-repeat: no-repeat; -->
+  <!-- background-size: cover; -->
+  <!-- <div class="auth-box" style="border-style: solid; padding: 8px; border-radius: 8px; border-color: gray; box-shadow: 6px 10px 10px gray;"> -->
+  <div class="auth-box">
+    <div>
+      <div class="logo">
+        <div class="d-flex justify-content-center">
+
+          <span class="db"><img src="/assets/img/logo_muni.jpg" alt="logo" height="150" /></span>
+        </div>
+        <!-- <br>
+                <h3 class="font-medium m-b-20">Municipalidad de Retalhuleu</h3>
+                <h3 class="font-medium m-b-20">Municipalidad de Retalhuleu</h3> -->
+
+        <div class="d-flex justify-content-center">
+          <h1 style="margin: 0px;">Programas Sociales </h1>
+        </div>
+        <div class="mb-1 d-flex justify-content-center">
+          <h2><strong>Municipalidad de Retalhuleu</strong></h2>
+        </div>
+      </div>
+      <!-- Form -->
+      <div class="row">
+        <div class="col-12">
+          <form class="form-horizontal m-t-20" id="loginForm" [formGroup]="loginForm" (submit)="login()">
+            <mat-card class="shipping-card">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><span class="material-symbols-outlined">
+                    person
+                  </span></span>
+              </div>
+              <input
+                [ngClass]="{ 'is-invalid': submitted && loginForm.controls['username']?.errors, 'input-form-active': loginForm.controls['username']?.value != ''}"
+                class="form-control input-form" formControlName="username" name="username" placeholder="Usuario"
+                type="text">
+              <div *ngIf="submitted && loginForm.controls['username'].errors" class="invalid-feedback">
+                <div *ngIf="loginForm.controls['username'].hasError('required')">Ingresa un usuario valido.</div>
+              </div>
+            </div>
+            <div class="input-group mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon2"><span class="material-symbols-outlined">
+                    edit
+                  </span></span>
+              </div>
+              <input
+                [ngClass]="{ 'is-invalid': submitted && loginForm.controls['password'].errors, 'input-form-active': loginForm.controls['password']?.value != ''}"
+                class="form-control input-form" formControlName="password" name="password" placeholder="Contranseña"
+                type="password">
+              <div *ngIf="submitted && loginForm.controls['password'].errors" class="invalid-feedback">
+                <div *ngIf="loginForm.controls['password'].hasError('required')">Ingresa tu contraseña.</div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-12">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="customCheck1">
+                  <a (click)="showRecoverForm()" href="javascript:void(0)" id="to-recover"
+                    class="text-dark float-right"><i class="fa fa-lock m-r-5"></i> Recuperar
+                    Contraseña</a>
+                </div>
+              </div>
+            </div>
+            <div class="form-group text-center">
+              <div class="col-xs-12 p-b-20">
+                <button class="btn btn-block btn-lg btn-info" type="submit">Iniciar Sesión</button>
+              </div>
+            </div>
+          </mat-card>
+          </form>
+          <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+            <mat-card class="shipping-card">
+              <mat-card-header class="title_center">
+                <mat-card-title>Inicio de Sesión</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div class="row">
+                  <div class="col">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="Usuario" formControlName="firstName">
+                      <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+                        Usuario es <strong>requerido</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="Contraseña" formControlName="lastName">
+                      <mat-error *ngIf="addressForm.controls['lastName'].hasError('required')">
+                        Contraseña es <strong>requerida</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </mat-card-content>
+              <mat-card-actions class="title_center">
+                <button mat-raised-button color="primary" type="submit">Iniciar Sesión</button>
+              </mat-card-actions>
+            </mat-card>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
+  <title>Gray Clouds Background</title>
+  <path id="Path_39" data-name="Path 39"
+    d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z"
+    transform="translate(142.69 -634.312)" fill="#eee" />
+</svg>
